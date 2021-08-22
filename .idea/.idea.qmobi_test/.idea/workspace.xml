@@ -36,6 +36,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tetromino.cs" />
       </list>
     </option>
@@ -79,7 +80,7 @@
       <option name="presentableId" value="Default" />
       <updated>1629593650577</updated>
       <workItem from="1629593664358" duration="1248000" />
-      <workItem from="1629635611981" duration="2868000" />
+      <workItem from="1629635611981" duration="6007000" />
     </task>
     <servers />
   </component>
@@ -88,4 +89,10 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="WindowStateProjectService">
+    <state x="518" y="237" width="644" height="536" key="find.popup" timestamp="1629650769412">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="518" y="237" width="644" height="536" key="find.popup/1680.118.1280.984/0.0.1680.1010@0.0.1680.1010" timestamp="1629650769412" />
+  </component>
 </project>
