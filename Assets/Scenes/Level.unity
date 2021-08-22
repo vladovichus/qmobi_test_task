@@ -206,63 +206,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &891325633
+--- !u!1001 &795121488
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2153730648161823620, guid: a9b35f8f0a57465408e2df494c41741e, type: 3}
+    - target: {fileID: 8951330098361329808, guid: 21b2e624f1d6de842900f212f0139955, type: 3}
+      propertyPath: m_Name
+      value: Tetromino_S
+      objectReference: {fileID: 0}
+    - target: {fileID: 8951330098361329809, guid: 21b2e624f1d6de842900f212f0139955, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2153730648161823620, guid: a9b35f8f0a57465408e2df494c41741e, type: 3}
+    - target: {fileID: 8951330098361329809, guid: 21b2e624f1d6de842900f212f0139955, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 2153730648161823620, guid: a9b35f8f0a57465408e2df494c41741e, type: 3}
+    - target: {fileID: 8951330098361329809, guid: 21b2e624f1d6de842900f212f0139955, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
-    - target: {fileID: 2153730648161823620, guid: a9b35f8f0a57465408e2df494c41741e, type: 3}
+    - target: {fileID: 8951330098361329809, guid: 21b2e624f1d6de842900f212f0139955, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2153730648161823620, guid: a9b35f8f0a57465408e2df494c41741e, type: 3}
+    - target: {fileID: 8951330098361329809, guid: 21b2e624f1d6de842900f212f0139955, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2153730648161823620, guid: a9b35f8f0a57465408e2df494c41741e, type: 3}
+    - target: {fileID: 8951330098361329809, guid: 21b2e624f1d6de842900f212f0139955, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2153730648161823620, guid: a9b35f8f0a57465408e2df494c41741e, type: 3}
+    - target: {fileID: 8951330098361329809, guid: 21b2e624f1d6de842900f212f0139955, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2153730648161823620, guid: a9b35f8f0a57465408e2df494c41741e, type: 3}
+    - target: {fileID: 8951330098361329809, guid: 21b2e624f1d6de842900f212f0139955, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2153730648161823620, guid: a9b35f8f0a57465408e2df494c41741e, type: 3}
+    - target: {fileID: 8951330098361329809, guid: 21b2e624f1d6de842900f212f0139955, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2153730648161823620, guid: a9b35f8f0a57465408e2df494c41741e, type: 3}
+    - target: {fileID: 8951330098361329809, guid: 21b2e624f1d6de842900f212f0139955, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2153730648161823620, guid: a9b35f8f0a57465408e2df494c41741e, type: 3}
+    - target: {fileID: 8951330098361329809, guid: 21b2e624f1d6de842900f212f0139955, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2153730648161823623, guid: a9b35f8f0a57465408e2df494c41741e, type: 3}
-      propertyPath: m_Name
-      value: Tetromino_L
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a9b35f8f0a57465408e2df494c41741e, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 21b2e624f1d6de842900f212f0139955, type: 3}
 --- !u!1 &1197653000 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4868446902824146194, guid: 4b7c2bd32f1189e42859c0ff2f04b436, type: 3}
