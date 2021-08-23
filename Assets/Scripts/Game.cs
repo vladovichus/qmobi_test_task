@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class Game : MonoBehaviour
@@ -18,6 +19,25 @@ public class Game : MonoBehaviour
     {
         SpawnNextTetromino();
     }
+
+    public bool CheckIsAboveGrid(Tetromino tetromino)
+    {
+        for (int x = 0; x < gridWidth; ++x)
+        {
+            foreach (Transform mino in tetromino.transform)
+            {
+                Vector2 pos = Round(mino.position);
+
+                if (pos.y > gridHeight - 1)
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
 
     public bool IsFullRowAt(int y)
     {
@@ -168,5 +188,10 @@ public class Game : MonoBehaviour
         }
 
         return randomTetrominoName;
+    }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene("GameOver");
     }
 }
