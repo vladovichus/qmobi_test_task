@@ -36,8 +36,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Tetromino.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Tetromino.cs" />
       </list>
     </option>
   </component>
@@ -80,7 +80,7 @@
       <option name="presentableId" value="Default" />
       <updated>1629593650577</updated>
       <workItem from="1629593664358" duration="1248000" />
-      <workItem from="1629635611981" duration="10544000" />
+      <workItem from="1629635611981" duration="14025000" />
     </task>
     <servers />
   </component>
