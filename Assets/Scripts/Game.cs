@@ -1,23 +1,90 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Mathematics;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
+using UnityEngine.UI;
 
 public class Game : MonoBehaviour
 {
     public static int gridWidth = 10;
     public static int gridHeight = 20;
-
     public static Transform[,] grid = new Transform[gridWidth, gridHeight];
+    public int scoreOneLine = 20;
+    public int scoreTwoLine = 50;
+    public int scoreThreeLine = 80;
+    public int scoreFourLine = 100;
+
+    public TMP_Text hud_score;
+
+    private int numberOfRowsThisTurn = 0;
+
+    public static int currentScore = 0;
 
 
     // Start is called before the first frame update
     void Start()
     {
         SpawnNextTetromino();
+    }
+
+    void Update()
+    {
+        UpdateScore();
+        UpdateUI();
+    }
+
+    public void UpdateUI()
+    {
+        hud_score.text= currentScore.ToString();
+    }
+
+    public void UpdateScore()
+    {
+        if (numberOfRowsThisTurn > 0)
+        {
+            if (numberOfRowsThisTurn == 1)
+            {
+                ClearedOneLine();
+            }
+            else if (numberOfRowsThisTurn == 2)
+            {
+                ClearedTwoLines();
+            }
+            else if (numberOfRowsThisTurn == 3)
+            {
+                ClearedThreeLines();
+            }
+            else if (numberOfRowsThisTurn == 4)
+            {
+                ClearedFourLines();
+            }
+
+            numberOfRowsThisTurn = 0;
+        }
+    }
+
+    public void ClearedOneLine()
+    {
+        currentScore += scoreOneLine;
+    }
+
+    public void ClearedTwoLines()
+    {
+        currentScore += scoreTwoLine;
+    }
+
+    public void ClearedThreeLines()
+    {
+        currentScore += scoreThreeLine;
+    }
+
+    public void ClearedFourLines()
+    {
+        currentScore += scoreFourLine;
     }
 
     public bool CheckIsAboveGrid(Tetromino tetromino)
@@ -48,6 +115,8 @@ public class Game : MonoBehaviour
                 return false;
             }
         }
+
+        numberOfRowsThisTurn++;
 
         return true;
     }
@@ -84,7 +153,7 @@ public class Game : MonoBehaviour
             i < gridHeight;
             ++i)
         {
-            MoveRowDown(1);
+            MoveRowDown(i);
         }
     }
 

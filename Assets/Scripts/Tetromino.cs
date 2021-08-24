@@ -9,6 +9,11 @@ public class Tetromino : MonoBehaviour
 
     public bool allowRotation = true;
     public bool limitRotation = false;
+    public string prefabName;
+
+    public int individualScore = 100;
+
+    private float individualScoreTime;
 
 
     // Start is called before the first frame update
@@ -20,6 +25,21 @@ public class Tetromino : MonoBehaviour
     void Update()
     {
         CheckUserInput();
+    }
+
+
+    void UpdateIndividualScore()
+    {
+        if (individualScoreTime < 1)
+        {
+            individualScoreTime += Time.deltaTime;
+        }
+        else
+        {
+            individualScoreTime = 0;
+
+            individualScore = Mathf.Max(individualScore - 10, 0);
+        }
     }
 
     void CheckUserInput()
@@ -96,7 +116,7 @@ public class Tetromino : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.DownArrow) || Time.time - fall >= fallSpeed)
         {
             transform.position += new Vector3(0, -1, 0);
-            fall = Time.time;
+            ///fall = Time.time;
             if (CheckIsValidPosition())
             {
                 FindObjectOfType<Game>().UpdateGrid(this);
@@ -104,7 +124,7 @@ public class Tetromino : MonoBehaviour
             else
             {
                 transform.position += new Vector3(0, 1, 0);
-                
+
                 FindObjectOfType<Game>().DeleteRow();
 
 
@@ -113,10 +133,14 @@ public class Tetromino : MonoBehaviour
                     FindObjectOfType<Game>().GameOver();
                 }
 
+                Game.currentScore += individualScore;
+
                 enabled = false;
 
                 FindObjectOfType<Game>().SpawnNextTetromino();
             }
+
+            fall = Time.time;
         }
     }
 
