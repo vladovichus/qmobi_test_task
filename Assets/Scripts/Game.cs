@@ -18,17 +18,22 @@ public class Game : MonoBehaviour
     public int scoreThreeLine = 80;
     public int scoreFourLine = 100;
 
+    public AudioClip clearedLineSound;
+
     public TMP_Text hud_score;
 
     private int numberOfRowsThisTurn = 0;
 
     public static int currentScore = 0;
 
+    private AudioSource audioSource;
+
 
     // Start is called before the first frame update
     void Start()
     {
         SpawnNextTetromino();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -64,6 +69,8 @@ public class Game : MonoBehaviour
             }
 
             numberOfRowsThisTurn = 0;
+            
+            PlayLineClearedSound();
         }
     }
 
@@ -85,6 +92,11 @@ public class Game : MonoBehaviour
     public void ClearedFourLines()
     {
         currentScore += scoreFourLine;
+    }
+
+    public void PlayLineClearedSound()
+    {
+        audioSource.PlayOneShot(clearedLineSound);
     }
 
     public bool CheckIsAboveGrid(Tetromino tetromino)

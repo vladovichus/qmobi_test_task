@@ -11,7 +11,14 @@ public class Tetromino : MonoBehaviour
     public bool limitRotation = false;
     public string prefabName;
 
+    public AudioClip moveSound;
+    public AudioClip rotateSound;
+    public AudioClip landSound;
+
+
     public int individualScore = 100;
+
+    private AudioSource audioSource;
 
     private float individualScoreTime;
 
@@ -19,6 +26,7 @@ public class Tetromino : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -50,6 +58,7 @@ public class Tetromino : MonoBehaviour
             if (CheckIsValidPosition())
             {
                 FindObjectOfType<Game>().UpdateGrid(this);
+                PlayMoveAudio();
             }
             else
             {
@@ -63,6 +72,7 @@ public class Tetromino : MonoBehaviour
             if (CheckIsValidPosition())
             {
                 FindObjectOfType<Game>().UpdateGrid(this);
+                PlayMoveAudio();
             }
             else
             {
@@ -92,6 +102,13 @@ public class Tetromino : MonoBehaviour
                 if (CheckIsValidPosition())
                 {
                     FindObjectOfType<Game>().UpdateGrid(this);
+
+                    PlayRotateAudio();
+
+                    if (Input.GetKeyDown(KeyCode.DownArrow))
+                    {
+                        PlayMoveAudio();
+                    }
                 }
                 else
                 {
@@ -133,6 +150,8 @@ public class Tetromino : MonoBehaviour
                     FindObjectOfType<Game>().GameOver();
                 }
 
+                PlayLandAudio();
+
                 Game.currentScore += individualScore;
 
                 enabled = false;
@@ -142,6 +161,22 @@ public class Tetromino : MonoBehaviour
 
             fall = Time.time;
         }
+    }
+
+
+    void PlayMoveAudio()
+    {
+        audioSource.PlayOneShot(moveSound);
+    }
+
+    void PlayRotateAudio()
+    {
+        audioSource.PlayOneShot(rotateSound);
+    }
+
+    void PlayLandAudio()
+    {
+        audioSource.PlayOneShot(landSound);
     }
 
     bool CheckIsValidPosition()
