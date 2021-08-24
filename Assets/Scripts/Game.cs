@@ -28,6 +28,12 @@ public class Game : MonoBehaviour
 
     private AudioSource audioSource;
 
+    private GameObject prevewTetromino;
+    private GameObject nextTetromino;
+
+    private bool gameStarted = false;
+
+    private Vector2 previewTetrominoPosition = new Vector2(-6.5f, 15);
 
     // Start is called before the first frame update
     void Start()
@@ -44,7 +50,7 @@ public class Game : MonoBehaviour
 
     public void UpdateUI()
     {
-        hud_score.text= currentScore.ToString();
+        hud_score.text = currentScore.ToString();
     }
 
     public void UpdateScore()
@@ -69,7 +75,7 @@ public class Game : MonoBehaviour
             }
 
             numberOfRowsThisTurn = 0;
-            
+
             PlayLineClearedSound();
         }
     }
@@ -224,9 +230,30 @@ public class Game : MonoBehaviour
 
     public void SpawnNextTetromino()
     {
-        GameObject nextTetromino = (GameObject) Instantiate(Resources.Load(GetRandomTetromino(), typeof(GameObject)),
-            new Vector2(5.0f, 21.0f), quaternion.identity);
+        if (!gameStarted)
+        {
+            gameStarted = true;
+            nextTetromino = (GameObject) Instantiate(Resources.Load(GetRandomTetromino(), typeof(GameObject)),
+                new Vector2(5.0f, 20.0f), quaternion.identity);
+            prevewTetromino = (GameObject) Instantiate(Resources.Load(GetRandomTetromino(), typeof(GameObject)),
+                previewTetrominoPosition, Quaternion.identity);
+            prevewTetromino.GetComponent<Tetromino>().enabled = false;
+        }
+        else
+        {
+            prevewTetromino.transform.localPosition = new Vector2(5.0f, 20.0f);
+            nextTetromino = prevewTetromino;
+            nextTetromino.GetComponent<Tetromino>().enabled = true;
+            prevewTetromino = (GameObject) Instantiate(Resources.Load(GetRandomTetromino(), typeof(GameObject)),
+                previewTetrominoPosition, Quaternion.identity);
+            prevewTetromino.GetComponent<Tetromino>().enabled = false;
+
+
+            /*nextTetromino = (GameObject) Instantiate(Resources.Load(GetRandomTetromino(), typeof(GameObject)),
+                new Vector2(5.0f, 20.0f), quaternion.identity);*/
+        }
     }
+
 
     public bool CheckInsideGrid(Vector2 pos)
     {
