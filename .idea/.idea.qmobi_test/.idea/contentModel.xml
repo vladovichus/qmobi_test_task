@@ -9,6 +9,7 @@
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="Game.cs" t="Include" />
+          <e p="GameMenu.cs" t="Include" />
           <e p="MenuSystem.cs" t="Include" />
           <e p="Tetromino.cs" t="Include" />
         </e>

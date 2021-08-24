@@ -30,6 +30,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MenuSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tetromino.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game.cs" root0="FORCE_HIGHLIGHTING" />
@@ -40,6 +41,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/MenuSystem.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tetromino.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameMenu.cs" />
       </list>
     </option>
   </component>
@@ -83,7 +85,7 @@
       <updated>1629593650577</updated>
       <workItem from="1629593664358" duration="1248000" />
       <workItem from="1629635611981" duration="18783000" />
-      <workItem from="1629720177708" duration="29738000" />
+      <workItem from="1629720177708" duration="31111000" />
     </task>
     <servers />
   </component>
