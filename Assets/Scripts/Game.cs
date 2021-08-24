@@ -18,9 +18,16 @@ public class Game : MonoBehaviour
     public int scoreThreeLine = 80;
     public int scoreFourLine = 100;
 
+    public int currentLevel = 0;
+    private int numLinesCleared = 0;
+
+    public float fallSpeed = 1.0f;
+
     public AudioClip clearedLineSound;
 
     public TMP_Text hud_score;
+    public TMP_Text hud_level;
+    public TMP_Text hud_lines;
 
     private int numberOfRowsThisTurn = 0;
 
@@ -46,11 +53,25 @@ public class Game : MonoBehaviour
     {
         UpdateScore();
         UpdateUI();
+        UpdateSpeed();
+        UpdateLevel();
+    }
+
+    void UpdateLevel()
+    {
+        currentLevel = numLinesCleared / 10;
+    }
+
+    void UpdateSpeed()
+    {
+        fallSpeed = 1.0f - ((float) currentLevel * 0.1f);
     }
 
     public void UpdateUI()
     {
         hud_score.text = currentScore.ToString();
+        hud_level.text = currentLevel.ToString();
+        hud_lines.text = numLinesCleared.ToString();
     }
 
     public void UpdateScore()
@@ -82,22 +103,26 @@ public class Game : MonoBehaviour
 
     public void ClearedOneLine()
     {
-        currentScore += scoreOneLine;
+        currentScore += scoreOneLine + (currentLevel * 20);
+        numLinesCleared++;
     }
 
     public void ClearedTwoLines()
     {
-        currentScore += scoreTwoLine;
+        currentScore += scoreTwoLine + (currentLevel * 40);
+        numLinesCleared += 2;
     }
 
     public void ClearedThreeLines()
     {
-        currentScore += scoreThreeLine;
+        currentScore += scoreThreeLine + (currentLevel * 60);
+        numLinesCleared += 3;
     }
 
     public void ClearedFourLines()
     {
-        currentScore += scoreFourLine;
+        currentScore += scoreFourLine + (currentLevel * 80);
+        numLinesCleared += 4;
     }
 
     public void PlayLineClearedSound()
