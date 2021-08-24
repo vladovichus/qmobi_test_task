@@ -38,8 +38,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/MenuSystem.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Tetromino.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Tetromino.cs" />
       </list>
     </option>
   </component>
@@ -83,7 +83,7 @@
       <updated>1629593650577</updated>
       <workItem from="1629593664358" duration="1248000" />
       <workItem from="1629635611981" duration="18783000" />
-      <workItem from="1629720177708" duration="16575000" />
+      <workItem from="1629720177708" duration="20893000" />
     </task>
     <servers />
   </component>

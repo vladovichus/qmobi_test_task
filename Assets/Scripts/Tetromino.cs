@@ -15,13 +15,23 @@ public class Tetromino : MonoBehaviour
     public AudioClip rotateSound;
     public AudioClip landSound;
 
+    private float continuousVerticalSpeed = 0.05f;
+    private float continuousHorizontalSpeed = 0.1f;
+    private float buttonDownWaitMax = 0f;
+
+
+    private float verticalTimer = 0;
+    private float horizontalTimer = 0;
+    private float buttonDownWaitTimer = 0;
+
+    private bool movedImmediateHorizontal = false;
+    private bool movedImmediateVertical = false;
 
     public int individualScore = 100;
 
     private AudioSource audioSource;
 
     private float individualScoreTime;
-
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +44,6 @@ public class Tetromino : MonoBehaviour
     {
         CheckUserInput();
     }
-
 
     void UpdateIndividualScore()
     {
@@ -52,8 +61,40 @@ public class Tetromino : MonoBehaviour
 
     void CheckUserInput()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow) ||
+            Input.GetKeyUp(KeyCode.DownArrow))
         {
+            movedImmediateVertical = false;
+            movedImmediateVertical = false;
+
+            horizontalTimer = 0;
+            verticalTimer = 0;
+            buttonDownWaitTimer = 0;
+        }
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            if (movedImmediateHorizontal)
+            {
+                if (buttonDownWaitTimer < buttonDownWaitMax)
+                {
+                    buttonDownWaitTimer += Time.deltaTime;
+                    return;
+                }
+
+                if (horizontalTimer < continuousHorizontalSpeed)
+                {
+                    horizontalTimer += Time.deltaTime;
+                    return;
+                }
+            }
+
+
+            if (!movedImmediateHorizontal)
+                movedImmediateHorizontal = true;
+
+            horizontalTimer = 0;
+
             transform.position += new Vector3(1, 0, 0);
             if (CheckIsValidPosition())
             {
@@ -65,8 +106,28 @@ public class Tetromino : MonoBehaviour
                 transform.position += new Vector3(-1, 0, 0);
             }
         }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        else if (Input.GetKey(KeyCode.LeftArrow))
         {
+            if (movedImmediateHorizontal)
+            {
+                if (buttonDownWaitTimer < buttonDownWaitMax)
+                {
+                    buttonDownWaitTimer += Time.deltaTime;
+                    return;
+                }
+
+                if (horizontalTimer < continuousHorizontalSpeed)
+                {
+                    horizontalTimer += Time.deltaTime;
+                    return;
+                }
+            }
+
+            if (!movedImmediateHorizontal)
+                movedImmediateHorizontal = true;
+
+            horizontalTimer = 0;
+
             transform.position += new Vector3(-1, 0, 0);
 
             if (CheckIsValidPosition())
@@ -130,10 +191,29 @@ public class Tetromino : MonoBehaviour
                 }
             }
         }
-        else if (Input.GetKeyDown(KeyCode.DownArrow) || Time.time - fall >= fallSpeed)
+        else if (Input.GetKey(KeyCode.DownArrow) || Time.time - fall >= fallSpeed)
         {
+            if (movedImmediateVertical)
+            {
+                if (buttonDownWaitTimer < buttonDownWaitMax)
+                {
+                    buttonDownWaitTimer += Time.deltaTime;
+                    return;
+                }
+
+                if (verticalTimer < continuousVerticalSpeed)
+                {
+                    verticalTimer += Time.deltaTime;
+                    return;
+                }
+            }
+
+            if (!movedImmediateVertical)
+                movedImmediateVertical = true;
+
+            verticalTimer = 0;
+
             transform.position += new Vector3(0, -1, 0);
-            ///fall = Time.time;
             if (CheckIsValidPosition())
             {
                 FindObjectOfType<Game>().UpdateGrid(this);
